@@ -15,6 +15,6 @@ public class Invoker {
     }
 
     public static Object invoke(Target target) throws Throwable {
-        return MH.invoke(target);
+        return MH.invokeExact(target);
     }
 }

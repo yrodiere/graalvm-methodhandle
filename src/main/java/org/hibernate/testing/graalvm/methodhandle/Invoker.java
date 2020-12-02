@@ -8,13 +8,13 @@ public class Invoker {
     private static final MethodHandle MH;
     static {
         try {
-            MH = MethodHandles.lookup().findStatic(Target.class, "foo", MethodType.methodType(Object.class));
+            MH = MethodHandles.lookup().findVirtual(Target.class, "foo", MethodType.methodType(Object.class));
         } catch (NoSuchMethodException | IllegalAccessException e) {
             throw new AssertionError(e);
         }
     }
 
-    public static Object invoke() throws Throwable {
-        return MH.invoke();
+    public static Object invoke(Target target) throws Throwable {
+        return MH.invoke(target);
     }
 }

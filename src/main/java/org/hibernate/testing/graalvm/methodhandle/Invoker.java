@@ -6,6 +6,7 @@ import java.lang.invoke.MethodType;
 
 public class Invoker {
     private static final MethodHandle MH;
+    private static final Target target = new Target();
     static {
         try {
             MH = MethodHandles.lookup().findVirtual(Target.class, "foo", MethodType.methodType(Object.class));
@@ -14,7 +15,7 @@ public class Invoker {
         }
     }
 
-    public static Object invoke(Target target) throws Throwable {
+    public static Object invoke() throws Throwable {
         return MH.invoke(target);
     }
 }

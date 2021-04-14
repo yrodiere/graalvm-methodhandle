@@ -1,9 +1,9 @@
 package org.hibernate.testing.graalvm.methodhandle;
 
-public class Target {
+public class Target1 {
 
     public Object foo() {
-        return "Big success!";
+        return "Target1#foo() invoked";
     }
 
 }
